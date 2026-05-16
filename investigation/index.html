@@ -115,10 +115,66 @@ header nav a,.menu a{font-size:.78rem !important}
 }
 </style>
 <style id="layout-defensive">
-html,body{overflow-x:hidden;max-width:100vw}
+body{overflow-x:clip;max-width:100vw}
 body>*{max-width:100vw}
 @media (min-width:901px){aside{position:relative}.content-area{display:flex;gap:1rem}}
 @media (max-width:900px){aside{width:100% !important;position:static !important;height:auto !important}.navbar{flex-wrap:wrap}}
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
+<style id="cat-toggle-no-box">
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+.cat-arrow{display:inline-block}
+</style>
+<style id="nav-arrow-no-box">
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+</style>
+<style id="post-fixes-v2">
+/* Inline links visibles en prosa */
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn){color:var(--accent,#1d4ed8) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn):hover{text-decoration-color:currentColor;opacity:.85}
+/* Sidebar hover adaptive */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+/* Cat-toggle sin caja */
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+/* Nav-arrow sin caja */
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+/* Navbar compacto */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+/* Layout defensive */
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+</style>
+<style id="nav-fix-v3">
+nav.navbar, header nav, .nav-bar, .top-nav { font-size: 1rem !important; }
+nav.navbar a, header nav a, .nav-bar a, .top-nav a, .nav-cat-link, .nav-item a { font-size: 1rem !important; color: #FFFFFF !important; font-weight: 500 !important; }
+nav.navbar a:hover, header nav a:hover, .nav-cat-link:hover { color: #FCD34D !important; text-decoration: underline; }
+nav[aria-label="breadcrumb"], .crumb, .breadcrumb { color: rgba(255,255,255,.85) !important; font-size: .82rem !important; }
+nav[aria-label="breadcrumb"] a, .crumb a, .breadcrumb a { color: #FFFFFF !important; text-decoration: underline; font-weight: 600; }
+nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important; }
+.crumb a[href="/"], .breadcrumb a[href="/"], a.home-link { color: #FFFFFF !important; }
+.brand-name, .logo-text, .main, .brand { color: #FFFFFF !important; }
 </style>
 </head><body>
 
@@ -151,14 +207,7 @@ body>*{max-width:100vw}
         <div style="margin:.4rem 0 0;text-align:center"><a href="mailto:contact@geotechnical-engineering1.co" style="display:inline-block;background:#EA580C;color:#FFF !important;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:800;font-size:1.05rem;box-shadow:0 4px 12px rgba(0,0,0,.15)">Email: contact@geotechnical-engineering1.co</a></div>
       </div>
     </section>
-<section class="block" style="padding:2rem 1.5rem"><div style="max-width:1200px;margin:0 auto">
-<img src="/img/ensayo-cbr-1.webp" alt="Investigation in Porirua" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
-<p>Geotechnical investigation in Porirua requires a thorough understanding of the local geology, which is dominated by greywacke bedrock, alluvial valleys, and coastal dune sands, often overlaid by variable fill materials. Our <a href="/investigation/">investigation services</a> cover the full scope from desktop studies and site walkovers to detailed subsurface exploration, all designed to comply with the New Zealand Building Code and guidance from MBIE and NZGS. In this seismically active region, we place special emphasis on liquefaction assessment and slope stability, integrating <a href="/cpt-test/">CPT (Cone Penetration Test)</a> profiling to capture continuous data through the challenging soils commonly encountered across the Porirua basin.</p>
-<p>Our field methodology aligns strictly with New Zealand Standards, including NZS 4402 for soil testing and NZGS guidelines for earthquake geotechnical practice. We deploy a combination of machine boreholes, dynamic probing, and <a href="/lab-in-situ/">In-Situ</a> techniques to characterize ground conditions accurately. Where granular layers are present, we conduct <a href="/sand-cone-density/">field density tests using the sand cone method</a> to verify compaction levels for structural fill and pavement subgrades. All field data is supplemented by a robust <a href="/laboratory/">laboratory</a> program, where index testing such as <a href="/grain-size/">grain size analysis by sieve and hydrometer</a> and <a href="/atterberg-limits/">Atterberg limits</a> determination provides the classification parameters needed for foundation design and earthworks specification.</p>
-<p>Typical projects in Porirua span residential subdivisions on sloping sites in Whitby and Aotea, commercial developments in the city centre, and infrastructure upgrades across the coastal margin. For lightweight structures on soft ground, our investigation often focuses on settlement potential and bearing capacity, delivering clear parameters for <a href="/foundations/">foundations</a> ranging from conventional footings to Improvement solutions. For larger earthworks, we assess material re-use suitability through laboratory testing, directly supporting earthworks specification and consent documentation.</p>
-<img src="/img/ensayo-spt-4.webp" alt="Investigation in Porirua" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
-
-<p>From initial site investigation through to factual and interpretative reporting, our process is structured to de-risk your project. Deliverables include detailed borehole and CPT logs, laboratory test results, and a comprehensive geotechnical report with clear recommendations for foundation design, earthworks, and drainage. By combining local geological knowledge with rigorous field and laboratory practice, we provide Porirua developers, architects, and engineers with the reliable subsurface information they need to progress confidently through building consent and construction phases.</p></div></section></main>
+<section class="block" style="padding:2rem 1.5rem"><div style="max-width:1200px;margin:0 auto"><p>Geotechnical site investigation is the first and most decisive phase of any engineering project that interacts with the ground. Its goal is to characterize stratigraphy, mechanical and hydraulic properties, and geological hazards of the subsurface, through a planned combination of indirect exploration (geophysics), direct exploration (boreholes, test pits) and in-situ testing.</p><p>Rotary core drilling allows undisturbed sampling and observation of stratigraphic contacts. SPT and CPTu tests, performed during drilling, deliver continuous profiles of resistance and drained/undrained behavior. Exploratory test pits complement surface information, especially for lightweight foundations or pavements.</p><p>Geophysical methods —seismic refraction, MASW, electrical tomography, GPR— cover large areas with low impact and reasonable cost, identifying stiffness contrasts and bedrock depth. Their interpretation is calibrated with localized boreholes to reduce uncertainty.</p><p>The investigation program must be proportional to project complexity and identified risks. Integration with background analysis, geomorphology and seismic hazard assessment ensures a robust geotechnical model, the basis for all subsequent design and construction decisions.</p></div></section></main>
 </div>
 
 
@@ -177,7 +226,8 @@ body>*{max-width:100vw}
           L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",{
             attribution:"&copy; OpenStreetMap contributors &copy; CARTO",maxZoom:19,subdomains:"abcd"
           }).addTo(m);
-          L.circle([-41.1354,174.8398],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Porirua");
+          L.marker([-41.1354,174.8398],{icon:L.divIcon({html:'<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 36\" width=\"24\" height=\"36\"><path d=\"M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24c0-6.6-5.4-12-12-12z\" fill=\"#E11D48\" stroke=\"#FFF\" stroke-width=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#FFF\"/></svg>',className:'',iconSize:[24,36],iconAnchor:[12,36],popupAnchor:[0,-32]})}).addTo(m);
+L.circle([-41.1354,174.8398],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Porirua");
         })();
         </script>
         <div style="margin-top:.5rem;font-size:.78rem;color:#888;text-align:center">
